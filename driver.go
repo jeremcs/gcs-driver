@@ -302,6 +302,20 @@ func (driver *GoogleStorageDriver) PutFile(objectName string, data io.Reader, ap
 }
 
 // Factory for the driver
+// The contents of the service account file should look like this:
+// {
+//   "type": "service_account",
+//   "project_id": "REDACTED",
+//   "private_key_id": "REDACTED",
+//   "private_key": "REDACTED",
+//   "client_email": "REDACTED",
+//   "client_id": "REDACTED",
+//   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+//   "token_uri": "https://accounts.google.com/o/oauth2/token",
+//   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+//   "client_x509_cert_url": "REDACTED"
+// }
+
 type GoogleStorageDriverFactory struct {
 	Bucket             string
 	ServiceAccountPath string
